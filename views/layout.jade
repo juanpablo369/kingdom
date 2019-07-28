@@ -1,7 +1,190 @@
 doctype html
 html
   head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+    link(rel='stylesheet', href='/stylesheets/estilos.css')
+
+    link(rel='stylesheet', type='text/css', href='stylesheets/animate.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/line-awesome.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/line-awesome-font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/jquery.mCustomScrollbar.min.css')
+    link(rel='stylesheet', type='text/css', href='lib/slick/slick.css')
+    link(rel='stylesheet', type='text/css', href='lib/slick/slick-theme.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/style.css')
+    link(rel='stylesheet', type='text/css', href='stylesheets/responsive.css')
+
+  body(style="background-color: silver;")
+   .wrapper
+    header
+     .container
+        .header-data
+          .logo
+            a(href='/')
+              img(src='images/logo.png', alt='')
+          .search-bar
+            form
+              input(type='text', name='search', placeholder='Buscar...')
+              button(type='submit')
+                i.la.la-search
+          nav
+            ul
+              li
+                a(href='#', title='')
+                  span
+                    img(src='', alt='')
+                  | Perfil
+                ul
+                  li
+                    a(href='companies.html', title='') Perfil
+                  li
+                    a(href='company-profile.html', title='') Company Profile
+              li
+                a(href='projects.html', title='')
+                  span
+                    img(src='', alt='')
+                  | Inicio
+
+              li
+                a.not-box-open(href='#', title='')
+                  span
+                    img(src='', alt='')
+                  | Mensajes
+                .notification-box.msg
+                  .nt-title
+                    h4 Setting
+                    a(href='#', title='') Clear all
+                  .nott-list
+                    .notfication-details
+                      .noty-user-img
+                        img(src='', alt='')
+                      .notification-info
+                        h3
+                          a(href='messages.html', title='') Jassica William
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.
+                        span 2 min ago
+                      // notification-info
+                    .notfication-details
+                      .noty-user-img
+                        img(src='', alt='')
+                      .notification-info
+                        h3
+                          a(href='messages.html', title='') Jassica William
+                        p Lorem ipsum dolor sit amet.
+                        span 2 min ago
+                      // notification-info
+                    .notfication-details
+                      .noty-user-img
+                        img(src='', alt='')
+                      .notification-info
+                        h3
+                          a(href='', title='') Jassica William
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo incididunt ut labore et dolore magna aliqua.
+                        span 2 min ago
+                      // notification-info
+                    .view-all-nots
+                      a(href='', title='') View All Messsages
+                  // nott-list end
+                // notification-box end
+              li
+                a.not-box-open(href='#', title='')
+                  span
+                    img(src='', alt='')
+                  | Notificaciones
+                .notification-box
+                  .nt-title
+                    h4 Setting
+                    a(href='#', title='') Clear all
+                  .nott-list
+                    .notfication-details
+                      .noty-user-img
+                        img(src='', alt='')
+                      .notification-info
+                        h3
+                          a(href='#', title='') Jassica William
+                          |  Comment on your project.
+                        span 2 min ago
+                      // notification-info
+                    .notfication-details
+                      .noty-user-img
+                        img(src='', alt='')
+                      .notification-info
+                        h3
+                          a(href='#', title='') Jassica William
+                          |  Comment on your project.
+                        span 2 min ago
+                      // notification-info
+                    .notfication-details
+                      .noty-user-img
+                        img(src='', alt='')
+                      .notification-info
+                        h3
+                          a(href='#', title='') Jassica William
+                          |  Comment on your project.
+                        span 2 min ago
+                      // notification-info
+                    .notfication-details
+                      .noty-user-img
+                        img(src='', alt='')
+                      .notification-info
+                        h3
+                          a(href='#', title='') Jassica William
+                          |  Comment on your project
+                        span 2 min ago
+                      // notification-info
+                    .view-all-nots
+                      a(href='#', title='') View All Notification
+                  // nott-list end
+                // notification-box end
+          // nav end
+          .menu-btn
+            a(href='#', title='')
+              i.fa.fa-bars
+          // menu-btn end
+          .user-account
+            .user-info
+              img(src='', alt='')
+              a(href='#', title='') Opciones
+              i.la.la-sort-down
+            .user-account-settingss
+              h3 Online Status
+              ul.on-off-status
+                li
+                  .fgt-sec
+                    input#c5(type='radio', name='cc')
+                    label(for='c5')
+                      span
+                    small Online
+                li
+                  .fgt-sec
+                    input#c6(type='radio', name='cc')
+                    label(for='c6')
+                      span
+                    small Offline
+              h3 Custom Status
+              .search_form
+                form
+                  input(type='text', name='search')
+                  button(type='submit') Ok
+              // search_form end
+              h3 Setting
+              ul.us-links
+                li
+                  a(href='', title='') Account Setting
+                li
+                  a(href='#', title='') Privacy
+                li
+                  a(href='#', title='') Faqs
+                li
+                  a(href='#', title='') Terms &amp; Conditions
+              h3.tc
+                a(href='', title='') Logout
+
+              
     block content
+                
