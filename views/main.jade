@@ -1,0 +1,508 @@
+extends layout
+
+block content
+  main
+    .main-section
+        .container
+          .main-section-data
+            .row
+              .col-lg-3.col-md-4.pd-left-none.no-pd
+                .main-left-sidebar.no-margin
+                  .user-data.full-width
+                    .user-profile
+                      .username-dt
+                        .usr-pic
+                          img(src='', alt='')
+                      // username-dt end
+                      .user-specs
+                        h3 Usuario
+                        span Graphic Designer at Self Employed
+                    // user-profile end
+                    ul.user-fw-status
+                      li
+                        h4 Following
+                        span 34
+                      li
+                        h4 Followers
+                        span 155
+                      li
+                        a(href='#', title='') Ver perfil
+                  // user-data end
+                  .suggestions.full-width
+                    .sd-title
+                      h3 Suggestions
+                      i.la.la-ellipsis-v
+                    // sd-title end
+                    .suggestions-list
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 Jessica William
+                          span Graphic Designer
+                        span
+                          i.la.la-plus
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 John Doe
+                          span PHP Developer
+                        span
+                          i.la.la-plus
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 Poonam
+                          span Wordpress Developer
+                        span
+                          i.la.la-plus
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 Bill Gates
+                          span C &amp; C++ Developer
+                        span
+                          i.la.la-plus
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 Jessica William
+                          span Graphic Designer
+                        span
+                          i.la.la-plus
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 John Doe
+                          span PHP Developer
+                        span
+                          i.la.la-plus
+                      .view-more
+                        a(href='#', title='') View More
+                    // suggestions-list end
+                  // suggestions end
+                // main-left-sidebar end
+              .col-lg-6.col-md-8.no-pd
+                .main-ws-sec
+                  .post-topbar
+                      
+                    .post-st
+                          .card
+                            .card-header.bg-dark
+                              h3.card-title.text-white
+                                i.far.fa-image Crear Publicacion
+                            .card-body
+                              form(action='/images', method='POST', enctype='multipart/form-data')
+                                .form-group
+                                  .input-group
+                                    .custom-file
+                                      input#inputGroupFile.custom-file-input(type='file', name='image', aria-describedby='inputGroupFileAddon', required='')          
+                                      label.custom-file-label(for='inputGroupFile') Escoger archivo
+                 
+                                .form-group
+                                  input.form-control(type='text', name='title', placeholder='Titulo para la imagen', required='')
+                 
+                                .form-group
+                                  textarea.form-control(name='description', rows='2', placeholder='Describa su imagen', required='')
+                
+                                .form-group
+                                  button.btn.btn-success
+                                    i.fa.fa-upload Subir Archivo
+                   // each val in images                 
+                   .card-body 
+                    .posty(style="margin-top: 2%;")
+                     
+                      .post-bar.no-margin
+                        .post_topbar
+                          .usy-dt
+                            img(src='', alt='')
+                            .usy-name
+                              h3 usuario
+                              span
+                                img(src='', alt='')
+                                | time ago
+                          .ed-opts
+                            a.ed-opts-open(href='#', title='')
+                              i.la.la-ellipsis-v
+                            ul.ed-options
+                              li
+                                a(href='#', title='') Edit Post
+                              li
+                                a(href='#', title='') Unsaved
+                              li
+                                a(href='#', title='') Unbid
+                              li
+                                a(href='#', title='') Close
+                              li
+                                a(href='#', title='') Hide
+                        
+                        .job_descp
+                          h3(style="text-align: center;") 
+                               
+                                    #video(style='object-fit: cover; display: flex;margin-top: 3%;')
+                                     
+                        .job-status-bar
+                          ul.like-com
+                            li
+                              a(href='#')
+                                i.la.la-heart
+                                |  Like
+                              img(src='', alt='')
+                              span 25
+                            |  
+                            li
+                              a.com(href='#', title='')
+                                img(src='', alt='')
+                                |  Comment 15
+                          a
+                            i.la.la-eye
+                            | Views 50
+                      
+              .col-lg-3.pd-right-none.no-pd
+                .right-sidebar
+                  .widget.widget-about
+                    .card.mt-2
+                        .card-header.bg-dark.text-white
+                           h5
+                             | Ultimos comentarios
+                        .card-body
+                            .row
+                            .col
+                                a(href='')
+                                img.img-thumbnail.w-70(src='')      
+                            .col
+                                blockquote.w-100
+                                p comentario       
+                                footer.blockquote-footer
+                                    span nombre           
+                                    span timeago
+
+                  // widget-about end
+                  .widget.widget-jobs
+                    .sd-title
+                      h3 Top Jobs
+                      i.la.la-ellipsis-v
+                    .jobs-list
+                      .job-info
+                        .job-details
+                          h3 Senior Product Designer
+                          p Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                        .hr-rate
+                          span $25/hr
+                      // job-info end
+                      .job-info
+                        .job-details
+                          h3 Senior UI / UX Designer
+                          p Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                        .hr-rate
+                          span $25/hr
+                      // job-info end
+                      .job-info
+                        .job-details
+                          h3 Junior Seo Designer
+                          p Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                        .hr-rate
+                          span $25/hr
+                      // job-info end
+                      .job-info
+                        .job-details
+                          h3 Senior PHP Designer
+                          p Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                        .hr-rate
+                          span $25/hr
+                      // job-info end
+                      .job-info
+                        .job-details
+                          h3 Senior Developer Designer
+                          p Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                        .hr-rate
+                          span $25/hr
+                      // job-info end
+                    // jobs-list end
+                  // widget-jobs end
+                  .widget.widget-jobs
+                    .sd-title
+                      h3 Most Viewed This Week
+                      i.la.la-ellipsis-v
+                    .jobs-list
+                      .job-info
+                        .job-details
+                          h3 Senior Product Designer
+                          p Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                        .hr-rate
+                          span $25/hr
+                      // job-info end
+                      .job-info
+                        .job-details
+                          h3 Senior UI / UX Designer
+                          p Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                        .hr-rate
+                          span $25/hr
+                      // job-info end
+                      .job-info
+                        .job-details
+                          h3 Junior Seo Designer
+                          p Lorem ipsum dolor sit amet, consectetur adipiscing elit..
+                        .hr-rate
+                          span $25/hr
+                      // job-info end
+                    // jobs-list end
+                  // widget-jobs end
+                  .widget.suggestions.full-width
+                    .sd-title
+                      h3 Most Viewed People
+                      i.la.la-ellipsis-v
+                    // sd-title end
+                    .suggestions-list
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 Jessica William
+                          span Graphic Designer
+                        span
+                          i.la.la-plus
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 John Doe
+                          span PHP Developer
+                        span
+                          i.la.la-plus
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 Poonam
+                          span Wordpress Developer
+                        span
+                          i.la.la-plus
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 Bill Gates
+                          span C &amp; C++ Developer
+                        span
+                          i.la.la-plus
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 Jessica William
+                          span Graphic Designer
+                        span
+                          i.la.la-plus
+                      .suggestion-usd
+                        img(src='', alt='')
+                        .sgt-text
+                          h4 John Doe
+                          span PHP Developer
+                        span
+                          i.la.la-plus
+                      .view-more
+                        a(href='#', title='') View More
+                    // suggestions-list end
+                // right-sidebar end
+          // main-section-data end
+          
+  .post-popup.pst-pj
+    .post-project
+        h3 Post a project
+        .post-project-fields
+
+        // post-project-fields end
+        a(href='#', title='')
+          i.la.la-times-circle-o
+      // post-project end
+    // post-project-popup end
+    .post-popup.job_post
+      .post-project
+        h3 Post a job
+        .post-project-fields
+          form
+            .row
+              .col-lg-12
+                input(type='text', name='title', placeholder='Title')
+              .col-lg-12
+                .inp-field
+                  select
+                    option Category
+                    option Category 1
+                    option Category 2
+                    option Category 3
+              .col-lg-12
+                input(type='text', name='skills', placeholder='Skills')
+              .col-lg-6
+                .price-br
+                  input(type='text', name='price1', placeholder='Price')
+                  i.la.la-dollar
+              .col-lg-6
+                .inp-field
+                  select
+                    option Full Time
+                    option Half time
+              .col-lg-12
+                textarea(name='description', placeholder='Description')
+              .col-lg-12
+                ul
+                  li
+                    button.active(type='submit', value='post') Post
+                  li
+                    a(href='#', title='') Cancel
+        // post-project-fields end
+        a(href='#', title='')
+          i.la.la-times-circle-o
+      // post-project end
+    // post-project-popup end
+    .chatbox-list
+      .chatbox
+        .chat-mg
+          a(href='#', title='')
+            img(src='', alt='')
+          span 2
+        .conversation-box
+          .con-title.mg-3
+            .chat-user-info
+              img(src='', alt='')
+              h3
+                | John Doe 
+                span.status-info
+            .st-icons
+              a(href='#', title='')
+                i.la.la-cog
+              a.close-chat(href='#', title='')
+                i.la.la-minus-square
+              a.close-chat(href='#', title='')
+                i.la.la-close
+          .chat-hist.mCustomScrollbar(data-mcs-theme='dark')
+            .chat-msg
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.
+              span Sat, Aug 23, 1:10 PM
+            .date-nd
+              span Sunday, August 24
+            .chat-msg.st2
+              p Cras ultricies ligula.
+              span 5 minutes ago
+            .chat-msg
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.
+              span Sat, Aug 23, 1:10 PM
+          // chat-list end
+          .typing-msg
+            form
+              textarea(placeholder='Type a message here')
+              button(type='submit')
+                i.fa.fa-send
+            ul.ft-options
+              li
+                a(href='#', title='')
+                  i.la.la-smile-o
+              li
+                a(href='#', title='')
+                  i.la.la-camera
+              li
+                a(href='#', title='')
+                  i.fa.fa-paperclip
+          // typing-msg end
+        // chat-history end
+      .chatbox
+        .chat-mg
+          a(href='#', title='')
+            img(src='', alt='')
+        .conversation-box
+          .con-title.mg-3
+            .chat-user-info
+              img(src='', alt='')
+              h3
+                | John Doe 
+                span.status-info
+            .st-icons
+              a(href='#', title='')
+                i.la.la-cog
+              a.close-chat(href='#', title='')
+                i.la.la-minus-square
+              a.close-chat(href='#', title='')
+                i.la.la-close
+          .chat-hist.mCustomScrollbar(data-mcs-theme='dark')
+            .chat-msg
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.
+              span Sat, Aug 23, 1:10 PM
+            .date-nd
+              span Sunday, August 24
+            .chat-msg.st2
+              p Cras ultricies ligula.
+              span 5 minutes ago
+            .chat-msg
+              p
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.
+              span Sat, Aug 23, 1:10 PM
+          // chat-list end
+          .typing-msg
+            form
+              textarea(placeholder='Type a message here')
+              button(type='submit')
+                i.fa.fa-send
+            ul.ft-options
+              li
+                a(href='#', title='')
+                  i.la.la-smile-o
+              li
+                a(href='#', title='')
+                  i.la.la-camera
+              li
+                a(href='#', title='')
+                  i.fa.fa-paperclip
+          // typing-msg end
+        // chat-history end
+      .chatbox
+        .chat-mg.bx
+          a(href='#', title='')
+            img(src='', alt='')
+          span 2
+        .conversation-box
+          .con-title
+            h3 Messages
+            a.close-chat(href='#', title='')
+              i.la.la-minus-square
+          .chat-list
+            .conv-list.active
+              .usrr-pic
+                img(src='', alt='')
+                span.active-status.activee
+              .usy-info
+                h3 John Doe
+                span
+                  | Lorem ipsum dolor 
+                  img(src='', alt='')
+              .ct-time
+                span 1:55 PM
+              span.msg-numbers 2
+            .conv-list
+              .usrr-pic
+                img(src='', alt='')
+              .usy-info
+                h3 John Doe
+                span
+                  | Lorem ipsum dolor 
+                  img(src='', alt='')
+              .ct-time
+                span 11:39 PM
+            .conv-list
+              .usrr-pic
+                img(src='', alt='')
+              .usy-info
+                h3 John Doe
+                span
+                  | Lorem ipsum dolor 
+                  img(src='', alt='')
+              .ct-time
+                span 0.28 AM
+          // chat-list end
+        // conversation-box end
+    // chatbox-list end
+
+script(type='text/javascript', src='javascripts/jquery.min.js')
+script(type='text/javascript', src='javascripts/popper.js')
+script(type='text/javascript', src='javascripts/bootstrap.min.js')
+script(type='text/javascript', src='javascripts/jquery.mCustomScrollbar.js')
+script(type='text/javascript', src='lib/slick/slick.min.js')
+script(type='text/javascript', src='javascripts/scrollbar.js')
+script(type='text/javascript', src='javascripts/script.js')
