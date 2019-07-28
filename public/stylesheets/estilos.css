@@ -1,0 +1,45 @@
+body {
+	min-height: 75rem;
+    padding-top: 4.5rem;
+    background-color: silver;
+}
+
+a {
+	color: #00B7FF;
+}
+
+.card {
+	margin-top:4%;
+}
+
+.video-responsive {
+	float: left; 
+	height: 100%; 
+	width: 100%;
+}
+
+.sidebar{
+	height: 100%;
+	position: fixed;
+}
+
+.vertical-menu {
+  width:17%; /* Set a width if you like */
+}
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #4CAF50; /* Add a green color to the "active/current" link */
+  color: white;
+}
