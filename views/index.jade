@@ -1,11 +1,14 @@
-doctype html
-html
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
-    title= title
-    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
-    link(rel='stylesheet', href='/stylesheets/styles.css')
-  body
-    h1= title
-    p Welcome to #{title}
+extends layout
+
+block content
+ .page-header.header-filter(data-parallax='true', style="background-image: url('https://images2.alphacoders.com/933/933145.jpg');")
+    .main.main-raised(style="margin-left: 30%; width:30%")
+       .card-body.ml-auto
+            h3 Bienvenido a la comunidad virtual mas grande de la UNL!
+        .col-md-9.ml-auto
+                .description.text-center(style="margin-bottom:0%; margin-left:81%;margin-rigth:100%")
+                 .form-group(style:"margin-top:100%")
+                  a.btn.btn-sm.btn-primary.h4(href='http://estudiantes.unl.edu.ec/login',style="margin-top:0px;margin-left:15px; margin-bottom:3px") SGA
+                  a.btn.btn-sm.btn-primary.h4(href='https://eva.unl.edu.ec/my/',style="margin-top:0px; margin-bottom:3px") EVA
+                  a.btn.btn-sm.btn-primary.h4(href='/principal',style="margin-top:0px; margin-left:3px; margin-bottom:3px") Muro
+

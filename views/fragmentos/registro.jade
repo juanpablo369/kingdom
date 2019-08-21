@@ -1,0 +1,33 @@
+extends ../layout
+block content      
+      
+
+ .page-header.header-filter(data-parallax='true', style="background-image: url('https://images2.alphacoders.com/933/933145.jpg');")
+  .container.login-content
+   .login.tab-pane.active
+    .card.card-body(style="margin-left: 100%; margin-top:50%; margin-bottom:0%")
+      .section.login-content
+        h3.login-form.text-center
+          i.fa.fa-lg.fa-fw.fa-user
+          span Registro
+        .login-form
+          form.login-form(method='post', action='/login')
+            .form-group
+              label.control-label.h4 Nombres
+              input#nombre.form-control.form-control-sm(type='text', placeholder='Nombres', autofocus='', name='nombre', required='true')
+              input#apellido.form-control.form-control-sm(style='margin-top: 0%', type='text', placeholder='Apellidos', autofocus='', name='apellido', required='true')
+            .form-group
+              label.control-label.h4 Datos de Cuenta
+              input#correo.form-control.form-control-sm(name='correo', type='email', placeholder='Correo', autofocus='', required='true')
+              input#pass.form-control.form-control-sm(type='password', placeholder='Clave', name='clave', required='true')
+              .form-group
+              select#area.form-control.form-control-sm(name='area')
+            .form-group
+              select#carrera.form-control.form-control-sm(name='carrera')
+                option(value='S/n') Seleccione la carrera
+            .col-md-9.ml-auto
+            .form-group.btn-container(style="margin-left: 67%; width:40%; margin-bottom: 0%;")
+              button.btn.btn-success.btn-block.bg-dark(type='submit')
+                i.fa.fa-sign-in.fa-lg.fa-fw
+                span Registrarse    
+           

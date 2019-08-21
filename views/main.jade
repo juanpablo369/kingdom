@@ -1,43 +1,126 @@
 extends layout
 
 block content
-  .card
-      .card-header.bg-dark
-        h3.card-title.text-white
-          i.far.fa-image Crear Publicacion
-   
-      .card-body
-        form(action='/images', method='POST', enctype='multipart/form-data')
+
+  //- formulario para crear nueva publicacion
+
+  
+
+  .col-md-7.mr-auto.ml-auto.card.wizard-card.bg-dark
+   .card-body
+        form(action='usuario/publicacion', method='POST')       
           .form-group
-            .input-group
-              .custom-file
-                input#inputGroupFile.custom-file-input(type='file', name='image', aria-describedby='inputGroupFileAddon', required='')
-                             
-                label.custom-file-label(for='inputGroupFile') Escoger archivo
-                 
-          .form-group
-            input.form-control(type='text', name='title', placeholder='Titulo para la imagen', required='')
-                 
-          .form-group
-            textarea.form-control(name='description', rows='2', placeholder='Describa su imagen', required='')
-                
-          .form-group
-            button.btn.btn-success
-              i.fa.fa-upload Subir Imagen
+            textarea.form-control.h4.text-white(name='publicacion',style="margin-left: 0%; margin-bottom: 0%;margin-top: 0%", rows='2', placeholder='¿Algo nuevo?, publícalo', required='')
+          .form-group( style="margin-left: 50%; margin-bottom: 0%") 
+            .button.btn.btn-success(href="#", style="margin-left: 0%; margin-bottom: 0%") Publicar
+              i.fa.fa-post
+            .button.btn.btn-info.mr-auto.bg-dark(href="#", data-toggle="modal",style="margin-left: 0%; margin-bottom: 0%", data-target="#miModal") Subir un archivo
+              fa.fa-upload
+             
         
-  .card.mt-2
-    .card-header.bg-dark.text-white
-      h3
-       i.far.fa-images subidas recientes
-  
-    .card.text-center
+  //- Barra Publicaciones 
+  .navbar.navbar-transparent.text-dark(color-on-scroll='100')
+      h3(style="margin-left: 42%") Publicaciones recientes:
+
+   each val in publish
+    .col-md-9.mr-auto.ml-auto.bg-dark
+      .card.wizard-card
+        h4.a.nav.nav-tabs.disabled( style="margin-left:50%",tabindex='-1', aria-disabled='true') #{val.timestamp}
+        img.img-thumbnail(src="/images/perfil/nikola.jpg", style="width: 120px; margin-left:-6px")
+        h4(style="margin-left: 9px") Nikola Tesla
+
+        .form-group(style="margin-top:-150px")
+          h3.a.nav.nav-tabs.disabled(style="margin-left: 35%; margin-top:2%") #{val.title}
+          h4.card-tex(style="margin-left: 25%; margin-top:0px; margin-bottom:0px") #{val.description}
+        .form-group
+          h3(style="margin-left: 18%; margin-bottom:10%;") #{val.publish}
+        .form-group(style="margin-top:-18%; margin-left:99%")
+          a.btn.btn-success.bg-dark(href="/publicacion/#{val.external_id}") Visitar
+          button.btn.btn-success(href="#",method="POST",name="like",style="opacity:30%; width: 1%; margin-left:96%; margin-top:1%")
+            span.likes-count(style="margin-left: 1%;") #{val.likes}
+                .fa.fa-like 
+              button.btn.btn-danger.btn-sm(href="#",name="dislike" style="width: 1%; margin-left:96%; margin-top:3px") #{val.dislikes}
+                .fa.fa-dislike
+        #video.img-fluid(style='object-fit: cover; width:100%; display: flex;') 
+             card-body
+              - var extension = val.ext
+           .text-center
+            case extension
+              when '.png'
+                img.card.card-body.col-md-8.ml-auto(src="/upload/#{val.filename}", style="margin-top:0%")
+              when '.jpg'
+                img.card.card-body.col-md-8.ml-auto.mr-auto(src="/upload/#{val.filename}",style="margin-top:-6%; margin-right:9%")
+              when '.jpeg'
+                img.card.card-body.col-md-8.ml-auto(src="/upload/#{val.filename}",style="margin-top:0%; margin-right:9%")
+              when '.gif'
+                img.card.card-body.col-md-8.ml-auto(src="/upload/#{val.filename}")
+              when '.mp4'
+                video.card.card-body.col-md-8.ml-auto(src="/upload/#{val.filename}",style="margin-top:-6%; margin-right:9%" controls)
+              when '.pdf'
+                embed(src="/upload/#{val.filename}" type="application/pdf" width="100%")
+                
+              when '.txt'
+                a(href="/upload/#{val.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{val.filename}")
+                  p Download #{val.filename}
+              when '.odt'
+                a(href="/upload/#{val.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{val.filename}")
+                  p Download #{val.filename}
+              when '.docx'
+                a(href="/upload/#{val.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{val.filename}")
+                  p Download #{val.filename}
+              when '.doc'
+                a(href="/upload/#{val.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{val.filename}")
+                  p Download #{val.filename}
+              when '.3gp'
+                a(href="/upload/#{val.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{val.filename}")
+                  p Download #{val.filename}
+        .card-footer(style="margin-left:90%")
+           .container
+             .row
+               .col-md-0 
+                   span#btn-like.a.ml-auto(data-id='#{val.external_id}', style="") 
+                   span.views-count.h4(style="margin-left: 1%;") #{val.views} Visitas 
+                   if val.views == 0
+                     span.views-count(style="margin-left: 1%;")
+                   else
+                     span.views-count(style="margin-left: 1%;") #{val.views}
+            a(href="/upload/#{val.external_id}")
      
-        .card-body
-          h5.card-title titulo
-          #video(style='object-fit: cover; display: flex;')
-          
-      .card-footer.text-muted
-  
+        ul.list-group.p-4
+  //- modal para subir archivos
+  #miModal.modal.fade(tabindex='-1', role='dialog')
+    .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h5.modal-title Subida de archivos 
+            .form-group       
+              .btn.btn-danger(data-dismiss='modal')
+                span(aria-hidden='true') &times;      
+          .modal-body
+            form(action='/publicarFile', method='POST', enctype='multipart/form-data')
+              .form-group
+                .input-group
+                  .custom-file
+                    input#inputGroupFile.custom-file-input(type='file', name='file', aria-describedby='inputGroupFileAddon', required='')
+                    label.btn.btn-info.bg-dark(for='inputGroupFile')  Seleccionar Archivo
+              .form-group
+                input.form-control(type='text', name='title', placeholder='Encabezado', required='')
+              .form-group
+                textarea.form-control(name='description', rows='2', placeholder='Descripción del archivo', required='')
+          .col-md-3.ml-auto
+           .form-group
+            button.btn.btn-success(style="margin-right: 0;") Publicar 
+            
   script(src='/javascripts/jquery.js')
   script(src='/javascripts/scripts.js')
   script(src='/javascripts/bootstrap.js')

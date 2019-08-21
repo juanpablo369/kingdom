@@ -1,0 +1,178 @@
+extends ../layout
+
+block content
+  if publish.ext
+   .card
+    .card-header.d-flex.justify-content-between.align-items-center
+        h2 #{publish.title}    
+        button#btn-delete.btn.btn-danger(data-id='#{publish.external_id}')
+          i.fa.fa-times
+          span  Eliminar
+      .card-body
+           
+        .text-center
+          // img.img-fluid(src='/upload/#{publish.filename}')
+          
+          - var extension = publish.ext
+            
+            case extension
+            
+              when '.png'
+                img.img-fluid(src="/upload/#{publish.filename}")
+              when '.jpg'
+                img.img-fluid(src="/upload/#{publish.filename}", style="width: 80%;")
+              when '.jpeg'
+                img.img-fluid(src="/upload/#{publish.filename}")
+              when '.gif'
+                img.img-fluid(src="/upload/#{publish.filename}")
+                
+              when '.mp4'
+                video(src="/upload/#{publish.filename}", controls, muted, style="width: 100%", autoplay)
+              when '.webm'
+                video(src="/upload/#{publish.filename}", controls, muted, style="width: 100%", autoplay)
+              when '.ogv'
+                video(src="/upload/#{publish.filename}", controls, muted, width="100%", autoplay)
+
+              when '.mp3'
+                video(src="/upload/#{publish.filename}", controls, width="100%", poster="/images/mp3.jpg")
+              when '.ogg'
+                video(src="/upload/#{publish.filename}", controls, width="100%", poster="/images/ogg.jpg")
+
+              when '.pdf'
+                a(href="/upload/#{publish.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{publish.filename}")
+                  p Download #{publish.filename}
+       
+              when '.txt'
+                a(href="/upload/#{publish.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{publish.filename}")
+                  p Download #{publish.filename}
+              when '.odt'
+                a(href="/upload/#{publish.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{publish.filename}")
+                  p Download #{publish.filename}
+              when '.docx'
+                a(href="/upload/#{publish.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{publish.filename}")
+                  p Download #{publish.filename}
+              when '.doc'
+                a(href="/upload/#{publish.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{publish.filename}")
+                  p Download #{publish.filename}
+              when '.3gp'
+                a(href="/upload/#{publish.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{publish.filename}")
+                  p Download #{publish.filename}
+              when '.zip'
+                a(href="/upload/#{publish.filename}")
+                  img(src="/images/memoriausb.jpg", width="50%")
+                a(href="/upload/#{publish.filename}")
+                  p Download Archivo
+           
+      .card-footer.d-flex.justify-content-between.align-items-center
+        button#btn-like.btn.btn-success(data-id='#{publish.external_id}')
+          i.fas.fa-thumbs-up
+          |  Me gusta   
+        p
+          span.likes-count #{publish.likes}   
+          i.fas.fa-heart     
+        p
+          i.fas.fa-eye
+          |  #{publish.views}   
+        p
+          i.far.fa-clock
+          | #{timeago}
+
+    p(style="margin-left: 4%;") #{publish.description}
+    
+    // COMMENTS
+    .card.mt-2
+      .card-header.d-flex.justify-content-between.align-items-center
+        h3 Comentarios   
+        button#btn-toggle-comment.btn.btn-info
+          i.fa.fa-comments-o
+          |  Comentar
+      .card-body
+        blockquote#post-comment
+          form(action='/publicacion/#{publish.external_id}/comment', method='POST')
+            .form-group
+              input.form-control(type='text', name='person', placeholder='Nombre')        
+            .form-group
+              textarea.form-control(name='comment', rows='2', placeholder='Su comentario')        
+            .form-group
+              button#btn-comment.btn.btn-success
+                i.fa.fa-comment
+                |  Postear  
+        ul.list-group.p-4
+        
+         each val in comment
+           li.list-group-item
+            .row
+              a.col.text-center(href='#')
+                img(src='http://gravatar.com/avatar/{gravatar}?d=monsterid&s=45')          
+              blockquote.col
+                p.lead #{val.comment}      
+                footer.blockquote-footer
+                |  #{val.person} - #{val.timestamp}
+  else
+    
+   .card
+    .card-header.d-flex.justify-content-between.align-items-center
+        h2 #{publish.title}    
+        button#btn-delete.btn.btn-danger(data-id='#{publish.external_id}')
+          i.fa.fa-times
+          |  Eliminar 
+      .card-body
+        p #{publish.publish}   
+      .card-footer.d-flex.justify-content-between.align-items-center
+        button#btn-like.btn.btn-success(data-id='#{publish.external_id}')
+          i.fas.fa-thumbs-up
+          |  Me gusta   
+        p
+          span.likes-count #{publish.likes}   
+          i.fas.fa-heart     
+        p
+          i.fas.fa-eye
+          |  #{publish.views}   
+        p
+          i.far.fa-clock
+          | #{timeago}
+    // COMMENTS
+    .card.mt-2
+      .card-header.d-flex.justify-content-between.align-items-center
+        h3 Comentarios   
+        button#btn-toggle-comment.btn.btn-info
+          i.fa.fa-comments-o
+          |  Comentar
+      .card-body
+        blockquote#post-comment
+          form(action='/publicacion/#{publish.external_id}/comment', method='POST')
+            .form-group
+              input.form-control(type='text', name='person', placeholder='Nombre')        
+            .form-group
+              textarea.form-control(name='comment', rows='2', placeholder='Su comentario')        
+            .form-group
+              button#btn-comment.btn.btn-success
+                i.fa.fa-comment
+                |  Postear  
+        ul.list-group.p-4
+        
+         each val in comment
+           li.list-group-item
+            .row
+              a.col.text-center(href='#')
+                img(src='http://gravatar.com/avatar/{gravatar}?d=monsterid&s=45')          
+              blockquote.col
+                p.lead #{val.comment}      
+                footer.blockquote-footer
+                |  #{val.person} - #{val.timestamp}
+                    
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/scripts.js')
+  script(src='/javascripts/bootstrap.js')

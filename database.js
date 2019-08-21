@@ -1,5 +1,5 @@
 module.exports = {
   database: {
-    URI: 'mongodb://localhost/a'
+    URI: 'mongodb://localhost/b'
   }
 };
