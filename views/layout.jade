@@ -32,7 +32,7 @@ html
         ul.navbar-nav.mr-auto(style="margin-left:3%")
           li.nav-item
             a.btn.bg-transparent.btn-sm(href='./principal', style="margin-left:0%")
-              .fa.fa-home.fa-lg.text-white 
+              .fa.fa-home.fa-lg.text-white
               span.sr-only (current)
           li.nav-item
             a.btn.btn-success.btn-sm(href='./perfil', style="margin-left:3%")
@@ -40,7 +40,9 @@ html
           li.nav-item
             a.btn.btn-danger.btn-sm(href='./mensajes', style="margin-left:6%")
               .fa.fa-id-card.fa-lg.text-white
-        
+        form.form-inline.my-2.my-lg-0(style="margin-top:0%; margin-bottom:0%")
+          a.btn.btn-success(href='/login') ACCEDE
+          a.btn.btn-outline-success(href='/registro') Registrate
 
    block content
         

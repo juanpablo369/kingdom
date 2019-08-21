@@ -72,7 +72,7 @@ class PublicacionController {
 				publish.save();
 				Comentario.find({publish_id: req.params.external}, (error, comment) => {
 					var timeago = moment(publish.timestamp).startOf('minute').fromNow();
-					res.render('publicacion', {timeago, publish, comment, title: publish.title});
+					res.render('usuario/publicacion', {timeago, publish, comment, title: publish.title});
 				});
 			}else{
 				res.redirect('/principal');

@@ -8,11 +8,11 @@ block content
 
   .col-md-7.mr-auto.ml-auto.card.wizard-card.bg-dark
    .card-body
-        form(action='usuario/publicacion', method='POST')       
+        form(action='/publicar', method='POST')       
           .form-group
             textarea.form-control.h4.text-white(name='publicacion',style="margin-left: 0%; margin-bottom: 0%;margin-top: 0%", rows='2', placeholder='¿Algo nuevo?, publícalo', required='')
           .form-group( style="margin-left: 50%; margin-bottom: 0%") 
-            .button.btn.btn-success(href="#", style="margin-left: 0%; margin-bottom: 0%") Publicar
+            button.btn.btn-success.submit(href="#",type="submit" style="margin-left: 0%; margin-bottom: 0%") Publicar
               i.fa.fa-post
             .button.btn.btn-info.mr-auto.bg-dark(href="#", data-toggle="modal",style="margin-left: 0%; margin-bottom: 0%", data-target="#miModal") Subir un archivo
               fa.fa-upload
@@ -26,17 +26,23 @@ block content
     .col-md-9.mr-auto.ml-auto.bg-dark
       .card.wizard-card
         h4.a.nav.nav-tabs.disabled( style="margin-left:50%",tabindex='-1', aria-disabled='true') #{val.timestamp}
+        //foto de perfil de usuario
         img.img-thumbnail(src="/images/perfil/nikola.jpg", style="width: 120px; margin-left:-6px")
+        //nombre de usuario
         h4(style="margin-left: 9px") Nikola Tesla
-
+        //publicacion con archivo
         .form-group(style="margin-top:-150px")
+          //titulo de la publicación
           h3.a.nav.nav-tabs.disabled(style="margin-left: 35%; margin-top:2%") #{val.title}
+          // descripción de la publicacion 
           h4.card-tex(style="margin-left: 25%; margin-top:0px; margin-bottom:0px") #{val.description}
         .form-group
+          //publicación simple
           h3(style="margin-left: 18%; margin-bottom:10%;") #{val.publish}
         .form-group(style="margin-top:-18%; margin-left:99%")
+          //BOTON visitar
           a.btn.btn-success.bg-dark(href="/publicacion/#{val.external_id}") Visitar
-          button.btn.btn-success(href="#",method="POST",name="like",style="opacity:30%; width: 1%; margin-left:96%; margin-top:1%")
+          button.btn.btn-success.btn-sm(href="#",method="POST",name="like",style="opacity:30%; width: 1%; margin-left:96%; margin-top:1%")
             span.likes-count(style="margin-left: 1%;") #{val.likes}
                 .fa.fa-like 
               button.btn.btn-danger.btn-sm(href="#",name="dislike" style="width: 1%; margin-left:96%; margin-top:3px") #{val.dislikes}
@@ -47,8 +53,10 @@ block content
            .text-center
             case extension
               when '.png'
-                img.card.card-body.col-md-8.ml-auto(src="/upload/#{val.filename}", style="margin-top:0%")
+                a(href="/publicacion/#{val.external_id}")
+                 img.card.card-body.col-md-8.ml-auto(src="/upload/#{val.filename}", style="margin-top:0%")
               when '.jpg'
+               a(href="/publicacion/#{val.external_id}")
                 img.card.card-body.col-md-8.ml-auto.mr-auto(src="/upload/#{val.filename}",style="margin-top:-6%; margin-right:9%")
               when '.jpeg'
                 img.card.card-body.col-md-8.ml-auto(src="/upload/#{val.filename}",style="margin-top:0%; margin-right:9%")
@@ -117,9 +125,9 @@ block content
                 input.form-control(type='text', name='title', placeholder='Encabezado', required='')
               .form-group
                 textarea.form-control(name='description', rows='2', placeholder='Descripción del archivo', required='')
-          .col-md-3.ml-auto
-           .form-group
-            button.btn.btn-success(style="margin-right: 0;") Publicar 
+                .col-md-3.ml-auto
+              .form-group
+                button.btn.btn-success(style="margin-right: 0;" type="submit") Publicar 
             
   script(src='/javascripts/jquery.js')
   script(src='/javascripts/scripts.js')
