@@ -5,16 +5,29 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var multer = require('multer');
-
+var flash = require('connect-flash');
+var session = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var passport= require('passport');
 var app = express();
 
+require('./config/passport');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+
+app.use(session({
+  secret: 'redSocial',
+  saveUninitialized: false,
+  resave: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(flash());
 app.use(multer({dest: path.join(__dirname, 'public/upload/temp')}).single('file'));
 
 app.use(logger('dev'));

@@ -30,7 +30,7 @@ class Roots {
     //PROVISIONALES
     //USER TEMPLATES
     perfil(req, res) {
-        res.render('Usuario/perfil', {
+        res.render('usuario/perfil', {
             title: "Perfil"
             //error: req.flash("err_cred")
         });

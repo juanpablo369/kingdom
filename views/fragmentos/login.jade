@@ -9,16 +9,16 @@ block content
           i.fa.fa-lg.fa-fw.fa-user
           span Inicia sesion
         .login-form
-          form.login-form(method='post', action='/login')
+          form.login-form(method='post', action='/inicio_sesion')
             .form-group
               input#usuario.form-control(type='email', placeholder='Correo', name='usuario', required='true', autofocus='')
               .form-control-feedback
             .form-group
               input#clave.form-control(type='password', placeholder='Clave', name='clave', required='true')
               .form-control-feedback         
-           .col-md-9.ml-auto
+            .col-md-9.ml-auto
             .form-group.btn-container(style="margin-left: 69%; width:50%; margin-bottom: 0%; margin-top:0%;")
-              button.btn.btn-success.btn-block.bg-dark(type='submit')
+              button.btn.btn-success.bg-dark(type='submit')
                 i.fa.fa-sign-in.fa-lg.fa-fw
                 span Entrar      
             input(type='hidden', name='${_csrf.parameterName}', value='${_csrf.token}')
